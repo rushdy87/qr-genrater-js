@@ -8,6 +8,7 @@ form.addEventListener('submit', onGenerateSubmit);
 
 function onGenerateSubmit(event) {
   event.preventDefault();
+  clearUI();
 
   const url = document.querySelector('#url').value;
   const size = document.querySelector('#size').value;
@@ -17,6 +18,10 @@ function onGenerateSubmit(event) {
     hideSpinner();
     generateQRCode(url, size);
   }, 1000);
+}
+
+function clearUI() {
+  qr.innerHTML = '';
 }
 
 function showSpinner() {
